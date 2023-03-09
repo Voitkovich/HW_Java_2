@@ -41,28 +41,28 @@ public static void main(String[] args) {
     
 // }
 // }
-Logger log = Logger.getLogger("logi");
-            int[] arr = new int[] { 1,3,5,7,4,8,9,6,2};
-            int temp;
-            try {
-                FileHandler fh = new FileHandler("logi.log");
-                log.addHandler(fh);
-                SimpleFormatter sf = new SimpleFormatter();
-                fh.setFormatter(sf);
-            } 
-            catch (Exception e) {
-                System.out.println(e.getMessage());
+Logger log = Logger.getLogger("Logi");
+    int[] arr = new int[] {1,2,5,8,4,9,6,3,7};
+    int temp;
+    try{
+        FileHandler fh = new FileHandler("logi.log");
+        log.addHandler(fh);
+        SimpleFormatter sf = new SimpleFormatter();
+        fh.setFormatter(sf);
+    }
+    catch(Exception e) {
+        System.out.println(e.getMessage());
+    }
+    for (int i = 0; i < arr.length; i++){
+        for (int j = 0; j < arr.length - 1 - 1; j++){
+            if (arr[j] > arr[j+1]) {
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+                log.info(Arrays.toString(arr));
             }
-            for (int i = 0; i < arr.length; i++) {
-                for (int j = 0; j < arr.length - 1 - i; j++) {
-                    if (arr[j] > arr[j + 1]) {
-                        temp = arr[j];
-                        arr[j] = arr[j + 1];
-                        arr[j + 1] = temp;
-                        log.info(Arrays.toString(arr));
-                    }
-                }
-            }
-            System.out.println(Arrays.toString(arr));
         }
     }
+    System.out.println(Arrays.toString(arr));
+}
+}
